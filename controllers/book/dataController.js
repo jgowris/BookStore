@@ -1,4 +1,4 @@
-const Fruit = require("../../models/fruits");
+const Fruit = require("../../models/books");
 
 const dataController = {
   index(req, res, next) {
