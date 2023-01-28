@@ -1,62 +1,66 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcryptjs");
 
-// Data controller
-const dataController = require("./dataController");
-const viewController = require("./viewController");
-const apiController = require("./apiController");
+const User = require("../../models/user");
 
-router.use((req, res, next) => {
-  console.log("session", req.session);
+router.get("/signup", (req, res) => {
+  res.render("user/Signup");
+});
 
-  if (req.session.loggedIn) {
-    next();
-  } else {
+router.get("/login", (req, res) => {
+  res.render("user/Login");
+});
+
+router.post("/signup", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    // hash the password that we recieve
+    const hashedPassword = await bcrypt.hash(
+      password,
+      await bcrypt.genSalt(10)
+    );
+    const createdUser = await User.create({
+      username,
+      password: hashedPassword,
+    });
+    console.log(createdUser);
     res.redirect("/user/login");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
   }
 });
 
-/**
- * Fruits - Api routes
- */
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    // Find the user by their username
+    const foundUser = await User.findOne({ username });
+    // Compare the sent password with the hashed one
+    const result = await bcrypt.compare(password, foundUser.password);
 
-// Index - Api
-router.get("/api", dataController.index, apiController.index);
+    if (result) {
+      req.session.username = foundUser.username;
+      req.session.loggedIn = true;
 
-// Show - Api
-router.get("/api/:id", dataController.show, apiController.show);
+      res.redirect("/books");
+    } else {
+      // error if password doesn't match
+      res.json({ error: "password doesn't match" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
 
-// Delete - Api
-router.delete("/api/:id", dataController.destroy, apiController.show);
-
-// Update - Api
-router.put("/api/:id", dataController.update, apiController.show);
-
-// Create - Api
-router.post("/api/", dataController.create, apiController.show);
-
-/**
- * Fruits
- */
-
-// Index
-router.get("/", dataController.index, viewController.index);
-
-// New
-router.get("/new", viewController.newView);
-
-// Delete
-router.delete("/:id", dataController.destroy, viewController.redirectHome);
-
-// Update
-router.put("/:id", dataController.update, viewController.redirectShow);
-
-// Create
-router.post("/", dataController.create, viewController.redirectHome);
-
-// Edit
-router.get("/:id/edit", dataController.show, viewController.edit);
-// Show - Route
-router.get("/:id", dataController.show, viewController.show);
+router.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    console.error(err);
+    res.redirect("/");
+  });
+});
 
 module.exports = router;

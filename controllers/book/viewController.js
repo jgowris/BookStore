@@ -1,17 +1,17 @@
-const RESOURCE_PATH = "/fruits";
+const RESOURCE_PATH = "/books";
 
 const viewController = {
   index(req, res) {
-    res.render("fruits/Index", res.locals.data);
+    res.render("books/Index", res.locals.data);
   },
   show(req, res) {
-    res.render("fruits/Show", res.locals.data);
+    res.render("books/Show", res.locals.data);
   },
   edit(req, res) {
-    res.render("fruits/Edit", res.locals.data);
+    res.render("books/Edit", res.locals.data);
   },
   newView(req, res) {
-    res.render("fruits/New");
+    res.render("books/New");
   },
   redirectHome(req, res) {
     res.redirect(RESOURCE_PATH);

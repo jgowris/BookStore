@@ -14,7 +14,6 @@ const PORT = 3000;
 /**
  * Controllers
  */
-const homeController = require("./controllers/home/homeController");
 const bookController = require("./controllers/book/bookController");
 const userController = require("./controllers/user/userController");
 
@@ -40,13 +39,13 @@ app.engine("jsx", require("jsx-view-engine").createEngine());
 /**
  * Controllers
  */
-app.use("/home", homeController);
-app.use("/book", bookController);
+
+app.use("/books", bookController);
 app.use("/user", userController);
 
-// Redirect to /home if the user goes to our base route
+// We are just going to redirect to /fruits if the user goes to our base route
 app.get("/", (req, res) => {
-  res.redirect("/home/");
+  res.redirect("/books/");
 });
 
 // Listen on the port
