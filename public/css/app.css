@@ -2,13 +2,14 @@
 
 body {
   background: url(https://i.imgur.com/RL80F6X.jpg);
+  background-size: cover;
   margin: 0;
   width: 100%;
-  font-family: "Comfortaa", cursive;
+  /* font-family: "Comfortaa", cursive; */
 }
 
 h1 {
-  font-family: "Righteous", cursive;
+  /*  font-family: "Righteous", cursive; */
   background: antiquewhite;
   margin: 0;
   margin-bottom: 0.5em;

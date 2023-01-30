@@ -14,27 +14,28 @@ class Index extends React.Component {
           </a>
         </nav>
 
-        {/* <ul> */}
-        {this.props.books.map((book, i) => {
-          return (
-            <div key={i}>
-              {/* <li key={i}> */}
-              <a href={`/books/${book.id}`}> {book.name} </a> by {book.author}
-              {" - "}
-              {book.bookIsAvailable
-                ? `Available for checkout`
-                : `Not available for checkout`}
-              <form action={`/books/${book._id}?_method=DELETE`} method="POST">
-                <input type="submit" value="DELETE" />
-              </form>
-              <form action={`/books/${book._id}/edit`} method="GET">
-                <input type="submit" value="UPDATE" />
-              </form>
-              {/* </li> */}
-            </div>
-          );
-        })}
-        {/* </ul> */}
+        <ul>
+          {this.props.books.map((book, i) => {
+            return (
+              <li key={i}>
+                <a href={`/books/${book.id}`}> {book.name} </a> by {book.author}
+                {" - "}
+                {book.bookIsAvailable
+                  ? `Available for checkout`
+                  : `Not available for checkout`}
+                <form
+                  action={`/books/${book._id}?_method=DELETE`}
+                  method="POST"
+                >
+                  <input type="submit" value="DELETE" />
+                </form>
+                <form action={`/books/${book._id}/edit`} method="GET">
+                  <input type="submit" value="UPDATE" />
+                </form>
+              </li>
+            );
+          })}
+        </ul>
       </DefaultLayout>
     );
   }
