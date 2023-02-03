@@ -17,24 +17,51 @@ h1 {
   text-align: center;
 }
 
+.signIn {
+  width: 400px;
+  background-color: white;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.signUp {
+}
+nav {
+  text-align: center;
+}
 a {
   color: orange;
   text-decoration: none;
-  text-shadow: 1px 1px 1px black;
+  /* text-shadow: 1px 1px 1px black; */
   font-size: 1.5em;
-  background: rgba(193, 235, 187, 0.9);
+  /* background: rgba(193, 235, 187, 0.9); */
 }
 
 a:hover {
   color: ghostwhite;
 }
-
+img {
+  border: 2px solid gray;
+  padding: 2px;
+}
+ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
 li {
   list-style: none;
+  width: auto;
+  background-color: darkkhaki;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 10px;
 }
 
 li a {
-  color: gray;
+  color: black;
 }
 
 input[type="text"] {
@@ -43,12 +70,60 @@ input[type="text"] {
 
 input[type="submit"] {
   padding: 0.3em;
-  color: orange;
-  background: mediumseagreen;
+  color: black;
+  /* background: mediumseagreen; */
   font-size: 1em;
   border-radius: 10%;
 }
 
 .logoutBtn {
   margin-left: 32px;
+}
+
+.bookContainer {
+  display: flex;
+  flex-direction: column;
+  /* justify-items: center; */
+  /* background-color: blue; */
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-start;
+}
+
+.availability {
+  font-size: 15px;
+}
+
+.bookEdit {
+  width: 50%;
+  background-color: white;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.editFlow {
+  margin: 5px;
+}
+
+.editConfirm {
+  text-align: left;
+  padding: 10px;
+}
+
+.editConfirmContent {
+  width: 50%;
+  background-color: white;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row;
+}
+
+.editConfirmImage,
+.editContent {
+  padding: 20px;
+  font-size: 20px;
 }

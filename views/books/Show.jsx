@@ -10,13 +10,22 @@ class Show extends React.Component {
 
     return (
       <DefaultLayout title="Book show page">
-        <nav>
-          <a href="/books">Back</a>
+        <nav class="editConfirm">
+          <a href="/books">Back to Index</a>
         </nav>
-        {book.name} by {book.author} {" - "}
-        {book.bookIsAvailable
-          ? `The book is currently available for checkout`
-          : `This book is currently not available for checkout`}
+        <div class="editConfirmContent">
+          <div class="editConfirmImage">
+            <img src={book.image} height="300px" width="200px" />
+          </div>
+          <div class="editContent">
+            Book Name: {book.name} <br />
+            Author: {book.author} <br />
+            Is Book available: <br />
+            {book.bookIsAvailable
+              ? `The book is currently available for checkout`
+              : `This book is currently not available for checkout`}
+          </div>
+        </div>
       </DefaultLayout>
     );
   }

@@ -1,15 +1,17 @@
 const React = require("react");
 const DefaultLayout = require("../layout/Default");
 
-class Edit extends React.Component {
+class Checkout extends React.Component {
   render() {
     const { name, _id, bookIsAvailable, author, image } = this.props.book;
 
     return (
-      <DefaultLayout title={`Edit Book - ${name}`}>
-        <div class="bookEdit">
+      <DefaultLayout title={`Checkout - ${name}`}>
+        <div class="bookCheckout">
           <form action={`/books/${_id}?_method=PUT`} method="POST">
-            Name:{" "}
+            Book Name: {book.name} <br />
+            Author: {book.author} <br />
+            {/* Name:{" "}
             <input
               type="text"
               name="name"
@@ -24,7 +26,7 @@ class Edit extends React.Component {
               class="editFlow"
               defaultValue={author}
             />
-            <br />
+            <br /> */}
             Is Book Available:
             {bookIsAvailable ? (
               <input
@@ -45,4 +47,4 @@ class Edit extends React.Component {
   }
 }
 
-module.exports = Edit;
+module.exports = Checkout;
