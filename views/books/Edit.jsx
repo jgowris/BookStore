@@ -9,35 +9,44 @@ class Edit extends React.Component {
       <DefaultLayout title={`Edit Book - ${name}`}>
         <div class="bookEdit">
           <form action={`/books/${_id}?_method=PUT`} method="POST">
-            Name:{" "}
-            <input
-              type="text"
-              name="name"
-              class="editFlow"
-              defaultValue={name}
-            />
-            <br />
-            Author:{" "}
-            <input
-              type="text"
-              name="author"
-              class="editFlow"
-              defaultValue={author}
-            />
-            <br />
-            Is Book Available:
-            {bookIsAvailable ? (
+            <div>
+              Name:{" "}
               <input
-                type="checkbox"
-                name="bookIsAvailable"
+                type="text"
+                name="name"
                 class="editFlow"
-                defaultChecked
+                defaultValue={name}
               />
-            ) : (
-              <input type="checkbox" name="bookIsAvailable" class="editFlow" />
-            )}
-            <br />
-            <input type="submit" value="Submit Changes" class="editFlow" />
+            </div>
+            <div>
+              Author:{" "}
+              <input
+                type="text"
+                name="author"
+                class="editFlow"
+                defaultValue={author}
+              />
+            </div>
+            <div>
+              Is Book Available:
+              {bookIsAvailable ? (
+                <input
+                  type="checkbox"
+                  name="bookIsAvailable"
+                  class="editFlow"
+                  defaultChecked
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="bookIsAvailable"
+                  class="editFlow"
+                />
+              )}
+            </div>
+            <div>
+              <input type="submit" value="Submit Changes" class="editFlow" />
+            </div>
           </form>
         </div>
       </DefaultLayout>

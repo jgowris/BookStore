@@ -32,7 +32,7 @@ class Index extends React.Component {
                     : `Not available for checkout`}
                 </div>
                 <div class="buttonContainer">
-                  <div class="deleteButton">
+                  {/* <div class="deleteButton">
                     <form
                       action={`/books/${book._id}?_method=DELETE`}
                       method="POST"
@@ -44,7 +44,7 @@ class Index extends React.Component {
                     <form action={`/books/${book._id}/edit`} method="GET">
                       <input type="submit" value="UPDATE" />
                     </form>
-                  </div>
+                  </div> */}
                   <div>
                     <form action={`/books/${book._id}/edit`} method="GET">
                       <input type="submit" value="CHECKOUT" />
