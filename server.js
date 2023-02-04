@@ -9,7 +9,7 @@ const app = express();
 /**
  * Configuration
  */
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 /**
  * Controllers
@@ -43,7 +43,7 @@ app.engine("jsx", require("jsx-view-engine").createEngine());
 app.use("/books", bookController);
 app.use("/user", userController);
 
-// We are just going to redirect to /fruits if the user goes to our base route
+// We are just going to redirect to /books if the user goes to our base route
 app.get("/", (req, res) => {
   res.redirect("/books/");
 });
