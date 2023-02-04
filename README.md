@@ -4,8 +4,8 @@ Book Store project to demonstrate the CRUD concepts.
 
 # Links
 
-Link to github repo: https://github.com/jgowris/BookStore
-Link to Live site: https://simplebookstore.herokuapp.com/
+<ul><li>Link to github repo: https://github.com/jgowris/BookStore </li>
+<li>Link to Live site: https://simplebookstore.herokuapp.com/ </li></ul>
 
 # What does the Site do
 
