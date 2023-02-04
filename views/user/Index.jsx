@@ -8,7 +8,7 @@ class Index extends React.Component {
     return (
       <DefaultLayout title="Book Store" cssPath="/css/app.css">
         <nav>
-          <a href="/books/new">Add a book</a>
+          {/* <a href="/books/new">Add a book</a> */}
           <a href="/user/logout">
             <button className="logoutBtn">Logout</button>
           </a>

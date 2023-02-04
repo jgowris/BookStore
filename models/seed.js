@@ -9,7 +9,7 @@ const seedBooks = [
     author: "Ken Follet",
     image: "https://i.imgur.com/VyWuaUz.jpg",
     bookIsAvailable: true,
-    username: "admin",
+    checkedOutBy: "admin",
     adminAcess: true,
   },
   {
@@ -17,7 +17,7 @@ const seedBooks = [
     author: "Robin Cook",
     image: "https://i.imgur.com/uzPZ2OC.jpg",
     bookIsAvailable: true,
-    username: "admin",
+    checkedOutBy: "admin",
     adminAcess: true,
   },
   {
@@ -25,7 +25,7 @@ const seedBooks = [
     author: "Tom Clancy",
     image: "https://i.imgur.com/xmE137Z.jpg",
     bookIsAvailable: true,
-    username: "admin",
+    checkedOutBy: "admin",
     adminAcess: true,
   },
   {
@@ -33,7 +33,7 @@ const seedBooks = [
     author: "Mo Gawdat",
     image: "https://i.imgur.com/ERkPCwU.jpg",
     bookIsAvailable: true,
-    username: "admin",
+    checkedOutBy: "admin",
     adminAcess: true,
   },
   {
@@ -41,7 +41,7 @@ const seedBooks = [
     author: "Lisa Feldman Barett",
     image: "https://i.imgur.com/uijaI1i.jpg",
     bookIsAvailable: true,
-    username: "admin",
+    checkedOutBy: "admin",
     adminAcess: true,
   },
   {
@@ -49,7 +49,7 @@ const seedBooks = [
     author: "Robin Sharma",
     image: "https://i.imgur.com/hKLFZAm.jpg",
     bookIsAvailable: true,
-    username: "admin",
+    checkedOutBy: "admin",
     adminAcess: true,
   },
   {
@@ -57,7 +57,7 @@ const seedBooks = [
     author: "Mo Gawdat",
     image: "https://i.imgur.com/3tcUuR1.jpg",
     bookIsAvailable: true,
-    username: "admin",
+    checkedOutBy: "admin",
     adminAcess: true,
   },
   {
@@ -65,7 +65,7 @@ const seedBooks = [
     author: "Adam Kay",
     image: "https://i.imgur.com/6p8o6kU.jpg",
     bookIsAvailable: true,
-    username: "admin",
+    checkedOutBy: "admin",
     adminAcess: true,
   },
   {
@@ -73,7 +73,7 @@ const seedBooks = [
     author: "Christian Lewis",
     image: "https://i.imgur.com/7KxBOJS.jpg",
     bookIsAvailable: true,
-    username: "admin",
+    checkedOutBy: "admin",
     adminAcess: true,
   },
 ];
@@ -89,7 +89,7 @@ const seedUser = [
 const seedDB = async () => {
   await Book.deleteMany({});
   await Book.insertMany(seedBooks);
-  console.log('books inserted')
+  console.log("books inserted");
 };
 
 seedDB().then(() => {
@@ -97,7 +97,7 @@ seedDB().then(() => {
   const seedDBUser = async () => {
     await User.deleteMany({});
     await User.create(seedUser);
-    console.log('user created')
+    console.log("user created");
   };
 
   seedDBUser().then(() => {

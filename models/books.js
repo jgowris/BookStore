@@ -6,7 +6,7 @@ const bookSchema = new mongoose.Schema({
   image: { type: String },
   //   readyToEat: { type: Boolean, default: false },
   bookIsAvailable: { type: Boolean, default: false },
-  username: { type: String },
+  checkedOutBy: { type: String },
   adminAccess: { type: Boolean, default: true },
 });
 

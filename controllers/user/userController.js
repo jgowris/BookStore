@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 
+const Book = require("../../models/books");
 const User = require("../../models/user");
 
 router.get("/signup", (req, res) => {
@@ -38,6 +39,7 @@ router.post("/login", async (req, res) => {
   try {
     // Find the user by their username
     const foundUser = await User.findOne({ username });
+    // const foundUserBooks = await Book.find({ checkedOutBy });
     // Compare the sent password with the hashed one
     const result = await bcrypt.compare(password, foundUser.password);
 
@@ -46,6 +48,7 @@ router.post("/login", async (req, res) => {
       req.session.loggedIn = true;
 
       res.redirect("/books");
+      // res.redirect("/books");
     } else {
       // error if password doesn't match
       res.json({ error: "password doesn't match" });
